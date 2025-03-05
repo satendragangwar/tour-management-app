@@ -86,11 +86,13 @@ const TourDetails = () => {
          <h2>{title}</h2>
          <div className='d-flex align-items-center gap-5'>
          <span className='tour__rating d-flex align-items-center gap-1'>
-        <i class="ri-bard-fill" style={{color:'var(--secondary-color)'}}></i>{avgRating===0?null:avgRating} {totalRating===0?'Not rated' :  (<span>({reviews?.length})</span>)}
+        <i className="ri-star-fill" style={{color:'var(--secondary-color)'}}></i>
+        {avgRating === 0 ? null : avgRating} 
+        {totalRating === 0 ? 'Not rated' : (<span>({reviews?.length})</span>)}
         </span>
 
        <span>
-       <i class="ri-map-pin-fill"></i>{address}
+       <i className="ri-map-pin-fill"></i>{address}
        </span>
 
          </div>

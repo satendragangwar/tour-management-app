@@ -1,13 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Island+Moments&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 :root {
-  --primary-color: #ff7e01;
-  --secondary-color: #faa935;
-  --heading-color: #0b2727;
-  --text-color: #6e7074;
-  --font-name: "Montserrat", sans-serif;
-  --subtitle-font-name: "Island Moments", cursive;
+  --primary-color: #000000;
+  --secondary-color: #4f46e5;
+  --accent-color: #ff3366;
+  --heading-color: #ffffff;
+  --text-color: #b3b3b3;
+  --dark-bg: #000000;
+  --card-bg: #111111;
+  --font-name: "Poppins", sans-serif;
+  --subtitle-font-name: "Playfair Display", serif;
 }
 
 * {
@@ -16,12 +19,29 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
   font-family: var(--font-name);
+  background-color: #000000;
+  color: var(--text-color);
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+body::before {
+  display: none;
 }
 
 section {
-  padding: 50px 0px;
+  padding: 100px 0px;
+  position: relative;
+  z-index: 1;
+  background-color: #000000;
+}
+
+#root {
+  background-color: #000000;
+  min-height: 100vh;
 }
 
 h1,
@@ -31,78 +51,96 @@ h4,
 h5,
 h6 {
   color: var(--heading-color);
+  font-family: var(--subtitle-font-name);
+  font-weight: 600;
 }
 
 a {
   text-decoration: none;
   color: unset;
+  transition: all 0.3s ease;
 }
+
 ul {
   list-style: none;
 }
 
 .primary__btn {
-  background: var(--secondary-color) !important;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed) !important;
   border: none !important;
-  border-radius: 50px !important;
-  padding: 0.4rem 1.5rem !important;
+  border-radius: 8px !important;
+  padding: 1rem 2.5rem !important;
+  transition: all 0.3s ease !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.primary__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
 }
 
 .primary__btn a {
   font-size: 1.1rem;
   text-decoration: none;
-  color: #fff;
+  color: var(--primary-color);
+  font-weight: 500;
 }
-.primary__btn a:hover {
-  color: inherit;
-}
+
 .secondary__btn {
   background: transparent !important;
-  color: #0b2727 !important;
-  border: none !important;
+  color: var(--heading-color) !important;
+  border: 2px solid #4f46e5 !important;
   font-weight: 500 !important;
+  border-radius: 8px !important;
+  padding: 1rem 2.5rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.secondary__btn:hover {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed) !important;
+  color: var(--primary-color) !important;
 }
 
 .secondary__btn a {
   text-decoration: none;
   font-size: 1.1rem;
-  color: var(--heading-color);
-}
-
-.secondary__btn a:hover {
   color: inherit;
 }
 
 .section__subtitle {
-  background: var(--secondary-color);
+  background: var(--card-bg);
   font-family: var(--subtitle-font-name);
   width: max-content;
-  padding: 0px 0.5rem;
-  padding-right: 1rem;
-
-  border-radius: 50px;
-  font-weight: 500;
-  font-size: 1.7rem;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.8rem;
   color: var(--heading-color);
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 @media only screen and (max-width:992px) {
-  .primary__btn a, .secondary__btn a{
-    font-size: .9rem;
-
+  .primary__btn a, 
+  .secondary__btn a {
+    font-size: 1rem;
   }
 
-  .primary__btn,.secondary__btn ,.btn-dark{
-     padding: 0.2rem 1.1rem !important;
+  .primary__btn,
+  .secondary__btn,
+  .btn-dark {
+    padding: 0.8rem 2rem !important;
   }
 
-  section{
-    padding: 40px 0;
+  section {
+    padding: 80px 0;
   }
 }
 
-@media only screen and (max-width:768px){
-  .section__subtitle{
-    font-size: 1.3rem;
+@media only screen and (max-width:768px) {
+  .section__subtitle {
+    font-size: 1.5rem;
+    padding: 0.6rem 1.5rem;
   }
 }

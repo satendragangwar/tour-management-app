@@ -1,10 +1,6 @@
 import React from 'react'
 import '../styles/home.css'
 import {Container , Row ,Col} from 'reactstrap'
-import heroImg from '../assets/images/hero-img01.jpg'
-import heroImg02 from '../assets/images/hero-img02.jpg'
-import heroVideo from '../assets/images/hero-video.mp4'
-import worldImg from '../assets/images/world.png'
 import experienceImg from '../assets/images/experience.png'
 import Subtitle from '../shared/Subtitle'
 import SearchBar from '../shared/SearchBar'
@@ -13,38 +9,26 @@ import FeaturedTourList from '../components/Featured-tours/FeaturedTourList'
 import MasonryImagesGallery from '../components/Image-gallery/MasonryImagesGallery'
 import Testimonials from '../components/Testimonial/Testimonials'
 import Newsletter from '../shared/Newsletter'
+import Map from '../components/Map/Map'
 
 const Home = () => {
   return <>
      <section>
       <Container>
-
-       
-
       <Row>
         <Col lg='6'>
           <div className="hero__content">
             <div className="hero__subtitle d-flex align-items-center">
               <Subtitle subtitle={"Know Before You Go"}/>
-              <img src={worldImg} alt="" />
+              <i className="ri-global-line world-icon"></i>
             </div>
-            <h1>Travelling opens the door to creating <span className="highlight">memories</span> </h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla, obcaecati laborum officiis ducimus sequi rerum neque accusantium a praesentium amet sed. Voluptatum officiis dolor voluptate dolores quos itaque, blanditiis exercitationem.</p>
+            <h1>Discover the world's most <span className="highlight">breathtaking</span> destinations</h1>
+            <p>Experience unforgettable adventures with our expertly curated tours. From pristine beaches to majestic mountains, we bring your travel dreams to life with personalized itineraries and local insights.</p>
           </div>
         </Col>
-        <Col lg='2'>
-          <div className="hero__img-box">
-            <img src={heroImg} alt="" />
-          </div>
-        </Col>
-        <Col lg='2'>
-          <div className="hero__img-box hero__video-box mt-4">
-            <video src={heroVideo} alt="" controls />
-          </div>
-        </Col>
-        <Col lg='2'>
-          <div className="hero__img-box mt-5">
-            <img src={heroImg02} alt="" />
+        <Col lg='6'>
+          <div className="hero__map">
+            <Map />
           </div>
         </Col>
         <SearchBar/>
@@ -83,25 +67,22 @@ const Home = () => {
       <Col lg='6'>
         <div className="experience__content">
           <Subtitle subtitle={'Experience'}/>
-          <h2>With our all experience <br/> we will serve you </h2>
-          <p>Lorem ipsum dolor sit amet consectetur. <br/>adipisicing elit. Eos accusamus temporibus, veritatis unde mollitia accusantium blanditiis, hic fuga optio dolorem atque ex a, consequatur maiores obcaecati et eaque aspernatur ducimus.</p>
+          <h2>With our expertise <br/> we create unforgettable journeys</h2>
+          <p>Our team of experienced travel experts has been crafting exceptional journeys for over a decade. We combine local knowledge with global expertise to deliver travel experiences that exceed expectations. From hidden gems to iconic landmarks, we ensure every moment of your journey is memorable.</p>
         </div>
 
         <div className="counter__wrapper d-flex align-items-center gap-5">
           <div className="counter__box">
-            <span>12k+</span>
+            <span><i className="ri-flight-takeoff-line"></i> 8k+</span>
             <h6>Successful Trip</h6>
-
           </div>
           <div className="counter__box">
-            <span>2k+</span>
+            <span><i className="ri-user-star-line"></i> 1.5k+</span>
             <h6>Regular clients</h6>
-
           </div>
           <div className="counter__box">
-            <span>15</span>
+            <span><i className="ri-calendar-check-line"></i> 10</span>
             <h6>Years experience</h6>
-
           </div>
         </div>
       </Col>

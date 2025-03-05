@@ -1,7 +1,8 @@
 import React from 'react'
 import './newsletter.css'
-import { Container ,Row ,Col } from 'reactstrap'
-import maleTourist from '../assets/images/male-tourist.png'
+import { Container, Row, Col } from 'reactstrap'
+import Map from '../components/Map/Map'
+
 const Newsletter = () => {
   return <section className='newsletter'>
     <Container>
@@ -11,14 +12,14 @@ const Newsletter = () => {
                     <h2>Subscribe now to get useful Travelling information</h2>
                     <div className="newsletter__input">
                         <input type="email" placeholder='Enter your email' />
-                        <button className="btn newsletter__btn">Subscribe</button>
+                        <button className="btn newsletter__btn text-white">Subscribe</button>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, rerum. Eveniet voluptatibus quasi perspiciatis natus in modi aliquid odit quas, ex a unde quo pariatur distinctio cupiditate necessitatibus hic minima.</p>
+                    <p>Join our travel community and receive exclusive travel tips, destination guides, and special offers. Get weekly updates on the best travel deals, hidden gems, and expert advice to make your next adventure unforgettable.</p>
                 </div>
             </Col>
             <Col lg='6'>
-                <div className="newsletter__img">
-                    <img src={maleTourist} alt="" />
+                <div className="newsletter__map">
+                    <Map />
                 </div>
             </Col>
         </Row>

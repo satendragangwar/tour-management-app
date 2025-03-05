@@ -1,127 +1,308 @@
 .hero__subtitle img{
-   width: 2.3rem;
-   height: 2.3rem;
+   width: 3rem;
+   height: 3rem;
+   animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+   0% { transform: translateY(0px); }
+   50% { transform: translateY(-10px); }
+   100% { transform: translateY(0px); }
 }
 
 .hero__content h1{
-    font-size: 3.2rem;
-    font-weight: 600;
-    margin-top: 1rem;
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
     margin-bottom: 2rem;
     color: var(--heading-color);
+    line-height: 1.2;
+    position: relative;
+    display: inline-block;
+}
 
+.hero__content h1::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 100px;
+    height: 4px;
+    background: var(--secondary-color);
+    border-radius: 2px;
 }
 
 .hero__content h1 .highlight{
     color: var(--secondary-color);
+    position: relative;
 }
 
 .hero__content p{
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     color: var(--text-color);
-    line-height: 2rem;
-    
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
 }
 
 .hero__img-box img , .hero__img-box video{
     width: 100%;
-    height: 350px;
-    border-radius: 20px;
-    border: 1px solid var(--secondary-color);
+    height: 450px;
+    border-radius: 8px;
     object-fit: cover;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero__img-box img:hover,
+.hero__img-box video:hover {
+    transform: translateY(-10px);
+    border-color: var(--secondary-color);
 }
 
 .hero__content{
-    padding-top:3.5rem ;
+    padding-top: 6rem;
+    position: relative;
+    z-index: 2;
+}
 
+.hero__map {
+    height: 450px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+}
+
+.hero__map:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 .hero__img-box{
     padding-top: 2rem;
-    
 }
 
 .services__subtitle{
-    font-size:2.3rem;
-    font-weight: 500;
-    color: #ee6e6e;
+    font-size:2.8rem;
+    font-weight: 600;
+    color: var(--secondary-color);
     font-family: var(--subtitle-font-name);
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.services__subtitle::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 2px;
 }
 
 .services__title{
-    font-size:2.5rem;
-    font-weight: 500;
-
+    font-size:3.2rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-bottom: 3rem;
 }
 
 .featured__tour-title {
-    font-size: 2.3rem;
-    font-weight: 500;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-bottom: 2.5rem;
+    position: relative;
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.featured__tour-title::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--secondary-color);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: slideIn 0.6s ease forwards 0.3s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    to {
+        transform: scaleX(1);
+    }
 }
 
 .experience__content h2{
-    font-size:2.5rem;
-    margin-top: 1rem;
-    font-weight: 500;
+    font-size:3.2rem;
+    margin-top: 2rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    line-height: 1.2;
 }
 
 .experience__content p{
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     color: var(--text-color);
-    margin-top: 1rem;
+    margin-top: 2rem;
+    line-height: 1.8;
+    max-width: 700px;
 }
 
-.counter__wrapper{
-    margin-top: 2.5rem;
+.counter__wrapper {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
 }
 
-.counter__box span{
+.counter__box {
+    text-align: center;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(0);
+}
+
+.counter__box:hover {
+    transform: translateY(-5px);
+    border-color: var(--secondary-color);
+}
+
+.counter__box span {
     width: 70px;
     height: 70px;
     margin: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    background:var(--primary-color);
-    color: #fff;
-    font-size: 1.6rem;
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    font-size: 1.5rem;
     font-weight: 600;
-    border-radius:10px 5px 10px 5px ;
-
-
+    border-radius: 50%;
+    transition: all 0.3s ease;
 }
 
-.counter__box h6{
-    font-size:1.1rem ;
-    margin-top: 0.7rem;
-    color: var(--text-color);
+.counter__box span i {
+    font-size: 1.2rem;
+    margin-right: 0.2rem;
 }
 
-.experience__img img{
-    width: 90%;
-}
-
-.gallery__title{
-    font-size: 2.3rem;
-    margin-bottom: 2.5rem;
-    margin-top: 1rem;
-}
-
-.masonry__img{
-    transition: .3s;
-}
-.masonry__img:hover{
+.counter__box:hover span {
     transform: scale(1.1);
 }
 
+.counter__box h6 {
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.experience__img img{
+    width: 100%;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.experience__img img:hover {
+    transform: translateY(-10px);
+    border-color: var(--secondary-color);
+}
+
+.gallery__title{
+    font-size: 2.8rem;
+    margin-bottom: 4rem;
+    margin-top: 2rem;
+    color: var(--heading-color);
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+}
+
+.gallery__title::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.masonry__img{
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.masonry__img:hover{
+    transform: translateY(-5px);
+    border-color: var(--secondary-color);
+}
+
 .testimonial__title {
-    font-size: 2.3rem;
-    margin-top: 1rem;
+    font-size: 2.8rem;
+    margin-top: 2rem;
+    color: var(--heading-color);
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+}
+
+.testimonial__title::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.world-icon {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-left: 1rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 @media only screen and (max-width:992px){
     .hero__content h1{
-        font-size: 2.7rem;
+        font-size: 3.5rem;
     }
 
     .hero__img-box{
@@ -133,21 +314,86 @@
     }
 
     .services__title,.featured__tour-title ,.gallery__title ,.testimonial__title ,.experience__content h2{
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
     .experience__img{
-        margin-top: 2rem;
+        margin-top: 3rem;
     }
 
-    
+    .counter__wrapper {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .counter__box {
+        padding: 1.5rem;
+    }
+
+    .counter__box span {
+        width: 60px;
+        height: 60px;
+        font-size: 1.3rem;
+    }
+
+    .counter__box span i {
+        font-size: 1.1rem;
+    }
+
+    .counter__box h6 {
+        font-size: 1.1rem;
+    }
+
+    .hero__map {
+        height: 400px;
+        margin-top: 3rem;
+    }
+}
+
+@media only screen and (max-width:768px){
+    .hero__map {
+        height: 350px;
+        margin-top: 2rem;
+    }
 }
 
 @media only screen and (max-width:576px){
  .hero__content h1{
-    font-size: 1.8rem;
+    font-size: 2.5rem;
  }
  .services__title,.featured__tour-title ,.gallery__title ,.testimonial__title ,.experience__content h2{
-    font-size: 1.5rem;
+    font-size: 2rem;
  }
+    
+    .counter__wrapper {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .counter__box {
+        padding: 1.2rem;
+    }
+
+    .counter__box span {
+        width: 50px;
+        height: 50px;
+        font-size: 1.1rem;
+    }
+
+    .counter__box span i {
+        font-size: 1rem;
+    }
+
+    .counter__box h6 {
+        font-size: 1rem;
+    }
+
+    .hero__content p {
+        font-size: 1.1rem;
+    }
+
+    .hero__map {
+        height: 300px;
+        margin-top: 1.5rem;
+    }
 }

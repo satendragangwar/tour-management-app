@@ -1,10 +1,10 @@
 .booking{
     padding: 2rem;
     border-radius: .5rem;
-    border: 1px solid rgb(229,231,235);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     position: sticky;
     top: 80px;
-
+    background: var(--card-bg);
 }
 
 .booking__top h3{
@@ -30,6 +30,7 @@
 
 .booking__form {
     padding-top:2rem;
+    color: white;
 }
 
 .booking__form h5{
@@ -40,24 +41,26 @@
     width: 100%;
     padding: 0.5rem;
     border-radius: .5rem;
-    color: var(--heading-color);
+    color: var(--text-color);
     font-size: 1rem;
     border: none;
-    border-bottom: 1px solid rgb(229,231,235);
-    
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
 }
 
 .booking__form input:focus{
     outline: none;
+
 }
 
 .booking__info-form{
     padding: 1rem;
-    border: 1px solid rgb(229,231,235);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--dark-bg);
 }
 
 .booking__bottom li{
-
+    background-color: black;
     display: flex;
     align-items: center;
     justify-content: space-between;
