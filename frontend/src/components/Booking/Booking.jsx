@@ -75,7 +75,7 @@ const Booking = ({tour,avgRating}) => {
 
     <div className='booking__bottom'>
         <ListGroup>
-            <ListGroupItem className='border-0 px-0'>
+            <ListGroupItem className='border-0 px-0 tt'>
                 <h5 className='d-flex align-items-center gap-1'>${price} <i className="ri-close-fill"></i> 1 person</h5>
                 <span>${price}</span>
             </ListGroupItem>

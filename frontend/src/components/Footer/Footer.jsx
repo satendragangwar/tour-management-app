@@ -78,21 +78,21 @@ const Footer = () => {
               <span><i className="ri-map-pin-line"></i></span>
               Address:
             </h6>
-            <p className='section__description text-white'>123 Travel Street, Adventure City, AC 12345</p>
+            <p className='section__description text-black'>123 Travel Street, Adventure City, AC 12345</p>
           </ListGroupItem>
           <ListGroupItem className='ps-0 border-0 d-flex align-items-center gap-3'>
             <h6 className='d-flex align-items-center gap-2'>
               <span><i className="ri-phone-line"></i></span>
               Phone:
             </h6>
-            <p className='section__description text-white'>+1 (555) 123-4567</p>
+            <p className='section__description text-black'>+1 (555) 123-4567</p>
           </ListGroupItem>
           <ListGroupItem className='ps-0 border-0 d-flex align-items-center gap-3'>
             <h6 className='d-flex align-items-center gap-2'>
               <span><i className="ri-mail-line"></i></span>
               Email:
             </h6>
-            <p className='section__description text-white'>info@mytour.com</p>
+            <p className='section__description text-black'>info@mytour.com</p>
           </ListGroupItem>
         </ListGroup>
       </Col>

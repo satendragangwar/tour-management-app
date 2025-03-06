@@ -1,80 +1,111 @@
-import React ,{useState,useContext} from 'react';
-import {Container,Row, Col,Form,FormGroup, Button} from 'reactstrap';
-import {Link,useNavigate} from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { Container, Row, Col, Form, FormGroup, Button } from 'reactstrap';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/login.css';
-
-import loginImg from '../assets/images/login.png';
-import userIcon from '../assets/images/user.png';
 import { AuthContext } from '../components/context/AuthContext';
 import { BASE_URL } from '../utils/config';
+
 const Login = () => {
-    const [credentials,setCredentials]  = useState({
-       email:undefined,
-       password:undefined
-
+    const [credentials, setCredentials] = useState({
+        email: undefined,
+        password: undefined
     });
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState('');
 
-    const {dispatch} = useContext(AuthContext)
-    const navigate = useNavigate()
+    const { dispatch } = useContext(AuthContext);
+    const navigate = useNavigate();
+
     const handleChange = e => {
-        setCredentials(prev=> ({...prev,[e.target.id]:e.target.value}))
+        setCredentials(prev => ({ ...prev, [e.target.id]: e.target.value }));
+        setError('');
     };
 
-    const handleClick = async e =>{
+    const handleClick = async e => {
         e.preventDefault();
-
-        dispatch({type:'LOGIN_START'})
+        setIsLoading(true);
+        setError('');
+        dispatch({ type: 'LOGIN_START' });
+        
         try {
-            const res = await fetch(`${BASE_URL}/auth/login`,{
-                method:'post',
-                headers:{'content-type':'application/json'
-            },
-            credentials:'include',
-            body:JSON.stringify(credentials),
-            })
-            const result  = await res.json()
-            if(!res.ok) alert(result.message)
-            dispatch({type:'LOGIN_SUCCESS',payload:result.data})
-            navigate('/')
+            const res = await fetch(`${BASE_URL}/auth/login`, {
+                method: 'post',
+                headers: { 'content-type': 'application/json' },
+                credentials: 'include',
+                body: JSON.stringify(credentials),
+            });
+            const result = await res.json();
+            
+            if (!res.ok) {
+                setError(result.message || 'Login failed. Please try again.');
+                return;
+            }
+            
+            dispatch({ type: 'LOGIN_SUCCESS', payload: result.data });
+            navigate('/');
         } catch (err) {
-            dispatch({type:'LOGIN_FAILURE',payload:err.message})
+            setError('An error occurred. Please try again.');
+            dispatch({ type: 'LOGIN_FAILURE', payload: err.message });
+        } finally {
+            setIsLoading(false);
         }
-    }
-  return <section>
-    <Container>
-        <Row>
-            <Col lg='8' className='m-auto'>
-                <div className="login__container d-flex justify-content-between">
+    };
 
-                    <div className="login__img">
-                        <img src={loginImg} alt="" />
-                    </div>
+    return (
+        <section>
+            <Container>
+                <Row>
+                    <Col lg='8' className='m-auto'>
+                        <div className="login__container">
+                            <div className="login__form">
+                                <h2>Welcome Back</h2>
+                                <p>Please login to your account</p>
+                                
+                                {error && (
+                                    <div className="alert alert-danger" role="alert">
+                                        {error}
+                                    </div>
+                                )}
 
-                    <div className="login__form">
-                        <div className="user">
-                            <img src={userIcon} alt="" />
+                                <Form onSubmit={handleClick}>
+                                    <FormGroup>
+                                        <input
+                                            type="email"
+                                            placeholder='Email'
+                                            required
+                                            id="email"
+                                            onChange={handleChange}
+                                            disabled={isLoading}
+                                        />
+                                    </FormGroup>
+
+                                    <FormGroup>
+                                        <input
+                                            type="password"
+                                            placeholder='Password'
+                                            required
+                                            id="password"
+                                            onChange={handleChange}
+                                            disabled={isLoading}
+                                        />
+                                    </FormGroup>
+
+                                    <Button 
+                                        className='btn auth__btn' 
+                                        type='submit'
+                                        disabled={isLoading}
+                                    >
+                                        {isLoading ? 'Logging in...' : 'Login'}
+                                    </Button>
+                                </Form>
+                                <p>Don't have an account? <Link to='/register'>Create Account</Link></p>
+                            </div>
                         </div>
-                        <h2>Login</h2>
-                        <Form onSubmit={handleClick}>
-                            <FormGroup>
-                                <input type="email" placeholder='Email' required id="email" onChange={handleChange} />
-                            </FormGroup>
+                    </Col>
+                </Row>
+            </Container>
+        </section>
+    );
+};
 
-                            <FormGroup>
-                                <input type="password" placeholder='Password' required id="password" onChange={handleChange} />
-                            </FormGroup>
-                            <Button className='btn secondary__btn auth__btn' type='submit'>
-                                Login
-                            </Button>
-                        </Form>
-                        <p>Dont't have an account? <Link to='/register'>Create</Link></p>
-                    </div>
-
-                </div>
-            </Col>
-        </Row>
-    </Container>
-  </section>
-}
-
-export default Login
+export default Login;

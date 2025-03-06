@@ -72,15 +72,15 @@ const Home = () => {
         </div>
 
         <div className="counter__wrapper d-flex align-items-center gap-5">
-          <div className="counter__box">
+          <div className="counter__box bg-primary">
             <span><i className="ri-flight-takeoff-line"></i> 8k+</span>
             <h6>Successful Trip</h6>
           </div>
-          <div className="counter__box">
+          <div className="counter__box bg-primary">
             <span><i className="ri-user-star-line"></i> 1.5k+</span>
             <h6>Regular clients</h6>
           </div>
-          <div className="counter__box">
+          <div className="counter__box bg-primary">
             <span><i className="ri-calendar-check-line"></i> 10</span>
             <h6>Years experience</h6>
           </div>

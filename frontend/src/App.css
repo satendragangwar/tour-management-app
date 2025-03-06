@@ -2,13 +2,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 :root {
-  --primary-color: #000000;
-  --secondary-color: #4f46e5;
-  --accent-color: #ff3366;
-  --heading-color: #ffffff;
-  --text-color: #b3b3b3;
-  --dark-bg: #000000;
-  --card-bg: #111111;
+  --primary-color: #2563eb;
+  --secondary-color: #3b82f6;
+  --accent-color: #f97316;
+  --heading-color: #1e293b;
+  --text-color: #475569;
+  --text-light: #64748b;
+  --text-dark: #0f172a;
+  --dark-bg: #f1f5f9;
+  --card-bg: #ffffff;
   --font-name: "Poppins", sans-serif;
   --subtitle-font-name: "Playfair Display", serif;
 }
@@ -21,7 +23,7 @@
 
 html, body {
   font-family: var(--font-name);
-  background-color: #000000;
+  background-color: #f8fafc;
   color: var(--text-color);
   position: relative;
   overflow-x: hidden;
@@ -36,11 +38,11 @@ section {
   padding: 100px 0px;
   position: relative;
   z-index: 1;
-  background-color: #000000;
+  background-color: #ffffff;
 }
 
 #root {
-  background-color: #000000;
+  background-color: #f8fafc;
   min-height: 100vh;
 }
 
@@ -50,15 +52,19 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--heading-color);
+  color: var(--text-dark);
   font-family: var(--subtitle-font-name);
   font-weight: 600;
 }
 
 a {
   text-decoration: none;
-  color: unset;
+  color: var(--text-dark);
   transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-color);
 }
 
 ul {
@@ -66,31 +72,32 @@ ul {
 }
 
 .primary__btn {
-  background: linear-gradient(135deg, #4f46e5, #7c3aed) !important;
+  background: linear-gradient(135deg, #2563eb, #3b82f6) !important;
   border: none !important;
   border-radius: 8px !important;
   padding: 1rem 2.5rem !important;
   transition: all 0.3s ease !important;
   position: relative;
   overflow: hidden;
+  color: white !important;
 }
 
 .primary__btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
 }
 
 .primary__btn a {
   font-size: 1.1rem;
   text-decoration: none;
-  color: var(--primary-color);
+  color: white;
   font-weight: 500;
 }
 
 .secondary__btn {
-  background: transparent !important;
-  color: var(--heading-color) !important;
-  border: 2px solid #4f46e5 !important;
+  background: white !important;
+  color: var(--primary-color) !important;
+  border: 2px solid var(--primary-color) !important;
   font-weight: 500 !important;
   border-radius: 8px !important;
   padding: 1rem 2.5rem !important;
@@ -98,8 +105,9 @@ ul {
 }
 
 .secondary__btn:hover {
-  background: linear-gradient(135deg, #4f46e5, #7c3aed) !important;
-  color: var(--primary-color) !important;
+  background: var(--primary-color) !important;
+  color: white !important;
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2);
 }
 
 .secondary__btn a {
@@ -109,16 +117,85 @@ ul {
 }
 
 .section__subtitle {
-  background: var(--card-bg);
+  background: var(--primary-color);
   font-family: var(--subtitle-font-name);
   width: max-content;
   padding: 0.8rem 2rem;
   border-radius: 8px;
   font-weight: 600;
   font-size: 1.8rem;
-  color: var(--heading-color);
+  color: white;
   margin-bottom: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+}
+
+/* Additional text color utilities */
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.text-secondary {
+  color: var(--secondary-color) !important;
+}
+
+.text-accent {
+  color: var(--accent-color) !important;
+}
+
+.text-dark {
+  color: var(--text-dark) !important;
+}
+
+.text-light {
+  color: var(--text-light) !important;
+}
+
+/* Card text colors */
+.card {
+  color: var(--text-color);
+}
+
+.card-title {
+  color: var(--text-dark);
+}
+
+.card-text {
+  color: var(--text-color);
+}
+
+/* Navigation text colors */
+.nav-link {
+  color: var(--text-dark) !important;
+}
+
+.nav-link:hover {
+  color: var(--primary-color) !important;
+}
+
+/* Footer text colors */
+.footer__text {
+  color: var(--text-color);
+}
+
+.footer__title {
+  color: var(--text-dark);
+}
+
+.footer__link {
+  color: var(--text-color);
+}
+
+.footer__link:hover {
+  color: var(--primary-color);
+}
+
+/* Form text colors */
+.form-label {
+  color: var(--text-dark);
+}
+
+.form-text {
+  color: var(--text-light);
 }
 
 @media only screen and (max-width:992px) {
